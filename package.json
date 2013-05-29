@@ -1,0 +1,28 @@
+{
+  "name": "fd-grunt-contrib",
+  "version": "0.0.1",
+  "description": "前端grunt任务集合",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fangdeng/fd-grunt-contrib.git"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.1.1",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-watch": "0.1.4",
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "grunt",
+    "task"
+  ],
+  "author": "fangdeng",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "e52436cb170bfb049aef64b3667d1ed8219d1afa"
+}

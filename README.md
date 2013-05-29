@@ -9,7 +9,7 @@
 ## 概要
 汇聚了前端开发中常用的一些任务。
 
-#### stylue
+#### [stylue](https://github.com/sjpsega/fd-grunt-stylus)
 > 用stylus书写css
 
 #### less
