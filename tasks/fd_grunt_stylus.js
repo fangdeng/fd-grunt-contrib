@@ -7,10 +7,9 @@
  */
 
 'use strict';
-var path = require("path");
 
 var COMMENT_REG = /\/\*[\w\W]*\*\//;
-var NO_COMPILE = 'compile=false';
+var NO_COMPILE = '!!cmd:stylusbuild=false';
 var COMMENT_SIGN = '/* create by stylus! */\n';
 var DEST_SUFFIX = ".css";
 var SRC_SUFFIX = ".styl";
@@ -101,7 +100,7 @@ module.exports = function(grunt) {
 var writeAndLog = function(destFilepath,css,writeOptions){
   css = COMMENT_SIGN + css;
   grunt.file.write(destFilepath, css, writeOptions);
-  grunt.log.success('File "' + destFilepath + '" created.');
+  grunt.log.writeln('File "' + destFilepath.cyan + '" created.');
 }
 
 //获得地址前缀
@@ -170,7 +169,9 @@ var compileStylus = function(srcFile, options, readOptions, callback) {
   // Load Nib if available
   try {
     s.use(require('nib')());
-  } catch (e) {}
+  } catch (e) {
+    grunt.util.warn("error",e);
+  }
 
   s.render(function(err, css) {
     if (err) {

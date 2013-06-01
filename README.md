@@ -9,13 +9,13 @@
 ## 概要
 汇聚了前端开发中常用的一些任务。
 
-#### [stylue](https://github.com/sjpsega/fd-grunt-stylus)
+#### [stylus](https://github.com/sjpsega/fd-grunt-stylus)
 > 用stylus书写css
 
 #### less
 > 用less书写css
 
-#### jade
+#### [jade](https://github.com/sjpsega/fd-grunt-jade)
 > 用jade书写html
 
 #### server
