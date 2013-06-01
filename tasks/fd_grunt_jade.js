@@ -63,7 +63,7 @@ module.exports = function(grunt) {
       .forEach(function(filepath) {
 
           destFilepath = filepath.replace(srcPrefix,destPrefix).replace(srcSuffix,destSuffix);
-          var src = grunt.file.read(filepath);
+          var src = grunt.file.read(filepath,readOptions || options);
 
           //若注释中有'!!cmd:jadebuild=false'则不编译
           var comment = src.match(COMMENT_REG);
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
           compiled = compiled.replace(COMMENT_REG,'');
           compiled = COMMENT_SIGN + grunt.util.linefeed + compiled;
 
-          grunt.file.write(destFilepath, compiled);
+          grunt.file.write(destFilepath, compiled, writeOptions || options);
           grunt.log.writeln('File "' + destFilepath.cyan + '" created.');
       });
     });
