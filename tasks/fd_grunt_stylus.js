@@ -8,9 +8,9 @@
 
 'use strict';
 
-var COMMENT_REG = /\/\*[\w\W]*\*\//;
+var COMMENT_REG = /\/\*[\s\S]*?\*\//;
 var NO_COMPILE = '!!cmd:stylusbuild=false';
-var COMMENT_SIGN = '/* create by stylus! */\n';
+var COMMENT_SIGN = '/* create by stylus! */';
 var DEST_SUFFIX = ".css";
 var SRC_SUFFIX = ".styl";
 var MERGE = "merge";
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       compress: false
     });
 
-    grunt.log.writeln("files",this.files);
+    // grunt.log.writeln("files",this.files);
 
     var writeOptions,readOptions;
     if(options.charset){
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
   });
 
 var writeAndLog = function(destFilepath,css,writeOptions){
-  css = COMMENT_SIGN + css;
+  css = COMMENT_SIGN + grunt.util.linefeed + css;
   grunt.file.write(destFilepath, css, writeOptions);
   grunt.log.writeln('File "' + destFilepath.cyan + '" created.');
 }

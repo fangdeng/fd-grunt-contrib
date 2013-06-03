@@ -8,7 +8,7 @@
 
 'use strict';
 
-var COMMENT_REG = /<!--[\w\W]*-->/g;
+var COMMENT_REG = /<!--[\s\S]*?-->/g;
 var NO_COMPILE = '!!cmd:jadebuild=false';
 var COMMENT_SIGN = '<!-- create by jade! -->';
 var DEST_SUFFIX = ".html";
@@ -84,7 +84,6 @@ module.exports = function(grunt) {
             grunt.log.error(e);
             grunt.fail.warn('Jade failed to compile '+filepath+'.');
           }
-
           compiled = compiled.replace(COMMENT_REG,'');
           compiled = COMMENT_SIGN + grunt.util.linefeed + compiled;
 
