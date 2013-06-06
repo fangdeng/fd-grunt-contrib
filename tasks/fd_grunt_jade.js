@@ -85,7 +85,8 @@ module.exports = function(grunt) {
             grunt.fail.warn('Jade failed to compile '+filepath+'.');
           }
           compiled = compiled.replace(COMMENT_REG,'');
-          compiled = COMMENT_SIGN + grunt.util.linefeed + compiled;
+          //不能在最前面加除了DOCTYPE之外的东西，否则IE下会有问题
+          // compiled = COMMENT_SIGN + grunt.util.linefeed + compiled;
 
           grunt.file.write(destFilepath, compiled, writeOptions || options);
           grunt.log.writeln('File "' + destFilepath.cyan + '" created.');
